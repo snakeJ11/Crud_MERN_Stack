@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import uniqid from "uniqid";
 import axios from "axios";
+
+
+
+var existe;
+function viaje(){
+window.location.href="/home";
+}
+
 function Agregar_usuario()
 {
 
-const[nombre, setnombre]=useState("");
-const[email, setemail]=useState("");
-const[telefono, settelefono]=useState("");
+    const[email, setemail]=useState("Correo");
+    const[usuario, setuser]=useState("Usuario");
+    const[contraseña, setcontraseña]=useState("Contraseña");
 
 
 
@@ -23,55 +30,81 @@ const[telefono, settelefono]=useState("");
 
     var user= 
     {
-    nombre: nombre,
     email: email,
-    telefono: telefono,
-    IDuser: uniqid()
+    usuario: usuario,
+    contraseña: contraseña
+    
         }
         console.log(user);
-    instance.post("/api/user/agregar_usuario",user).then(({data})=>data).catch(err =>(console.log(err)))
 
-       
+    instance.post('/agregar_usuario',user).then(({data})=>existe=data).catch(err =>(console.log(err)))    
+       if(existe==="existe"){
+        alert("Este usuario ya existe");
+       }
+   else{alert("Usuario agregado")}
     }
 
         
 
 return(
-    <><div className="container">
-        <div className="row">
+    <div className="container mt-5">
+      <button className="btn btn-danger position-absolute top-0 start-0" onClick={viaje}>
+    Volver
+  </button>
+    <div className="row">
+      <div className="col-sm-6 offset-md-3">
+        <h2>Agregar Usuario</h2>
 
-            <h2>Agregar Usuario</h2>
+        
 
-
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Correo Electrónico
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            id="email"
+            value={email}
+            onChange={(e) => setemail(e.target.value)}
+          />
         </div>
 
-   
-            <div className="row">
-                <div className="col-sm-6 offset-3">
-    <label htmlFor="Nombre">Nombre</label>
-<input type="text" className="form-control" value={nombre} onChange={(e)=>{setnombre(e.target.value)}}/>
+        <div className="mb-3">
+          <label htmlFor="usuario" className="form-label">
+            Usuario
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            id="usuario"
+            value={usuario}
+            onChange={(e) => setuser(e.target.value)}
+          />
+        </div>
 
-                </div>
-                <div className="col-sm-6 offset-3">
-        <label htmlFor="email">Correo electronico</label>
-        <input type="email" className="form-control" value={email} onChange={(e)=>{setemail(e.target.value)}}/>
-            
-                </div>
-                <div className="col-sm-6 offset-3">
-        <label htmlFor="Numero">Telefono</label>
-        <input type="text" className="form-control" value={telefono} onChange={(e)=>{settelefono(e.target.value)}}/>
-            
-                </div>
+        <div className="mb-3">
+          <label htmlFor="contraseña" className="form-label">
+            Contraseña
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            id="contraseña"
+            value={contraseña}
+            onChange={(e) => setcontraseña(e.target.value)}
+          />
+        </div>
 
-            </div>
+        <button  className="btn btn-primary" onClick={ agregar_Usuario}>
+          Agregar usuario
+        </button>
+      </div>
+    </div>
+  </div>
+);
+};
 
-<button onClick={agregar_Usuario} className="btn btn-success">Guardar Usuario</button>
 
-        </div></>
-
-
-)
-    
-}
 
 export default Agregar_usuario;
