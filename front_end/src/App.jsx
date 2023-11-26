@@ -1,7 +1,7 @@
 
-import Lista_usuarios from "./lista_usuarios"; 
+import Mural from "./mural"; 
 import Agregar_usuario from "./agregar_usuario"; 
-import Editar_usuario from "./editar_usuario"; 
+import Publicar from "./publicar"; 
 import Login from "./login";
 import {BrowserRouter,Routes,Route} from "react-router-dom"; 
 
@@ -20,8 +20,8 @@ function App() {
 
 <Route path='/' element={<Login/>} exact> </Route>
 <Route path='/agregar_usuario' element={<Agregar_usuario/>} exact> </Route>
-<Route path='/publicar' element={<Editar_usuario/>} exact> </Route>
-<Route path='/home' element={<Lista_usuarios/>} exact> </Route>
+<Route path='/publicar' element={<Publicar/>} exact> </Route>
+<Route path='/home' element={<Mural/>} exact> </Route>
 
 
 

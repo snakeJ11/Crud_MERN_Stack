@@ -9,6 +9,8 @@ var valor="invitado";
 
 
 
+
+
 function viaje(){
   localStorage.clear()
   localStorage.setItem("user", valor);

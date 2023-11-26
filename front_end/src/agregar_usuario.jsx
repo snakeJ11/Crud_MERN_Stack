@@ -8,6 +8,8 @@ function viaje(){
 window.location.href="/home";
 }
 
+
+
 function Agregar_usuario()
 {
 
