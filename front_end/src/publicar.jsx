@@ -29,7 +29,7 @@ function Publicar()
 
 
    
-  
+      alert("Publicacion agregada");
       try {
         // Enviar la imagen al servidor de Node.js
         
@@ -38,12 +38,12 @@ function Publicar()
         // La respuesta podría contener la URL de la imagen en Firebase
 
 
-
+        
         window.location.reload();
       } catch (error) {
         console.error('Error al subir la imagen:', error);
       }
-      alert("usuario agregado")
+     
     };
   
 
