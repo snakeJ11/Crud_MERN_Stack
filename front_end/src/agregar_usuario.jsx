@@ -5,7 +5,7 @@ import axios from "axios";
 
 var existe;
 function viaje(){
-window.location.href="/home";
+window.location.href="/";
 }
 
 

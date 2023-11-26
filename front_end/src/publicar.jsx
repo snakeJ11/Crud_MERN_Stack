@@ -18,6 +18,7 @@ function Publicar()
 
   const handleImageChange = (e) => {
     setSelectedImage(e.target.files[0]);
+
   };
     const handleUpload = async () => {
       const formData = new FormData();
@@ -42,6 +43,7 @@ function Publicar()
       } catch (error) {
         console.error('Error al subir la imagen:', error);
       }
+      alert("usuario agregado")
     };
   
 
@@ -70,7 +72,7 @@ function Publicar()
         </label>
       </div>
 
-      <input type="file" onChange={handleImageChange} className="form-control-file" />
+      <input type="file" accept="image/*" onChange={handleImageChange} className="form-control-file" />
 
       <div className="form-group text-center">
         <button className="btn btn-primary" onClick={handleUpload}>
